@@ -4,75 +4,41 @@
 
 using namespace std;
 
-void determinant::OutputSequence(int* pSeq, int* pIndices, int size)
-{
-	cout << "{";
-	for (int i = 0; i < size; i++)
-		cout << pSeq[pIndices[i]] << ", ";
-	cout << "}" << endl;
+void determinant::print(vector<int> v1, vector<int> v2) {
+	for (int i = 0; i < v2.size(); i++) {
+		cout << v1[v2[i]] << " ";
+	}
+	cout << endl;
 }
 
-bool determinant::GetNextSeqIndices(int* pIndices, Direction* pDir, int size)
-{
-	int maxMvIdx = -1;
-	// find max moveable number
-
-	for (int i = 0; i < size; i++)
-	{
-		if (maxMvIdx < 0 || pIndices[i] > pIndices[maxMvIdx])
-		{
-			if (pDir[i] == Direction::Left && i > 0 && pIndices[i] > pIndices[i - 1])
-				maxMvIdx = i;
-			else if (pDir[i] == Direction::Right && i < size - 1 && pIndices[i] > pIndices[i + 1])
-			{
-				maxMvIdx = i;
-				i++;
+int determinant::findMovable(vector<int> v1, vector<int> dir, int n) {
+	int max = -1;
+	for (int i = 0; i < n; i++) {
+		if (max<0 || v1[i]>v1[max]) {
+			if (dir[i] == 1 && i > 0 && v1[i] > v1[i - 1]) {
+				max = i;
+			}
+			else if (dir[i] == 0 && i<n - 1 && v1[i]>v1[i + 1]) {
+				max = i;
 			}
 		}
 	}
-	if (maxMvIdx == -1)
-		return false;
-	// move number and change direction 
+	return max;
+}
 
-	for (int i = 0; i < size; i++)
-	{
-		if (i == maxMvIdx)
-		{
-			int swapIdx = pDir[i] == Direction::Left ? i - 1 : i + 1;
-			std::swap(pIndices[swapIdx], pIndices[i]);
-			std::swap(pDir[swapIdx], pDir[i]);
-			maxMvIdx = swapIdx;
-			if (maxMvIdx > i)
-				i++;
-
+vector<int> determinant::reverse(vector<int> v, vector<int> left, int index) {
+	for (int i = 0; i < v.size(); i++) {
+		if (v[i] > v[index]) {
+			if (left[i] == 0)
+				left[i] = 1;
+			else
+				left[i] = 0;
 		}
-		else if (pIndices[i] > pIndices[maxMvIdx])
-			pDir[i] = pDir[i] == Direction::Left ? Direction::Right : Direction::Left;
 	}
-	return true;
+	return left;
 }
 
-void determinant::GetPermutation(int seqence[], int size)
-{
-	int* pIndex = new int[size];
-	Direction* pDir = new Direction[size];
-	for (int i = 0; i < size; i++)
-	{
-		pIndex[i] = i;
-		pDir[i] = Direction::Left;
-	}
-	do {
-
-		OutputSequence(seqence, pIndex, size);
-
-	} while (GetNextSeqIndices(pIndex, pDir, size));
-
-	delete[] pIndex;
-	delete[] pDir;
-
-}
-
-int determinant::GetInverseCount(int sequence[], int size)
+int determinant::GetInverseCount(vector<int> sequence, int size)
 {
 	int count{ 0 };
 	for (int i = 0; i < size - 1; i++)
