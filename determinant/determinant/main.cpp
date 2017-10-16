@@ -1,7 +1,8 @@
-#include <iostream>
+#include "determinant.h"
+#include<vector>
 
-using namespace std;
+void TestPermutation();
 
 void main() {
-	cout << "test" << endl;
+	TestPermutation();
 }
