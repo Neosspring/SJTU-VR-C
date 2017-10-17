@@ -8,11 +8,13 @@ void TestPermutation()
 {
 	vector<int> det = { 1,3,7 };
 
-	vector<vector<int>> deter = { {1,2,3},{4,5,6},{7,8,9} };
+	int deter[10][10] = { {1,2,3},{4,5,6},{7,8,9} };
 
-	cout << deter.size() << endl;
+	determinant deter1(deter, 3);
 
-	determinant deter1(det);
+	deter1.print(deter1.ddeter, 3);
+
+	/*determinant deter1(det);
 
 	deter1.print(deter1.deter, deter1.pIndex);
 
@@ -38,5 +40,5 @@ void TestPermutation()
 		deter1.pDir = deter1.reverse(deter1.pIndex, deter1.pDir, index);
 
 		index = deter1.findMovable(deter1.pIndex, deter1.pDir, deter1.deter.size());
-	}
+	}*/
 }
