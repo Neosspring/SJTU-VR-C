@@ -11,14 +11,14 @@ void determinant::print(vector<int> v1, vector<int> v2) {
 	cout << endl;
 }
 
-int determinant::findMovable(vector<int> v1, vector<int> dir, int n) {
+int determinant::findMovable(vector<int> v, vector<int> dir, int n) {
 	int max = -1;
 	for (int i = 0; i < n; i++) {
-		if (max<0 || v1[i]>v1[max]) {
-			if (dir[i] == 1 && i > 0 && v1[i] > v1[i - 1]) {
+		if (max<0 || v[i]>v[max]) {
+			if (dir[i] == 1 && i > 0 && v[i] > v[i - 1]) {
 				max = i;
 			}
-			else if (dir[i] == 0 && i<n - 1 && v1[i]>v1[i + 1]) {
+			else if (dir[i] == 0 && i < n - 1 && v[i] > v[i + 1]) {
 				max = i;
 			}
 		}
@@ -50,4 +50,12 @@ int determinant::GetInverseCount(vector<int> sequence, int size)
 		}
 	}
 	return count;
+}
+
+vector<int> determinant::swap(vector<int> v, int index1, int index2) 
+{
+	int index = v[index1];
+	v[index1] = v[index2];
+	v[index2] = index;
+	return v;
 }

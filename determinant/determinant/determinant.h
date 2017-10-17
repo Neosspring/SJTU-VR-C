@@ -21,10 +21,11 @@ public:
 		}
 	};
 
-	int findMovable(vector<int> v1, vector<int> dir, int n);
+	int findMovable(vector<int> v, vector<int> dir, int n);
 	vector<int> reverse(vector<int> v1, vector<int> dir, int index);
 	void print(vector<int> v1, vector<int> v2);
 	int GetInverseCount(vector<int> sequence, int size);
+	vector<int> swap(vector<int> v, int index1, int index2);
 
 private:
 

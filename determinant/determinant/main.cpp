@@ -6,3 +6,5 @@ void TestPermutation();
 void main() {
 	TestPermutation();
 }
+
+
