@@ -4,20 +4,31 @@
 
 using namespace std;
 
-enum class Direction : char { Left, Right };
-
 class determinant
 {
 public:
 	vector<int> deter;
 	vector<int> pIndex;
 	vector<int> pDir;
+	vector<vector<int>> ddeter;
 
-	determinant(vector<int> det) {		
+	determinant(vector<int> det) {
 		for (int i = 0; i < det.size(); ++i) {
 			deter.push_back(det[i]);
 			pIndex.push_back(i);
 			pDir.push_back(1);
+		}
+	};
+
+	determinant(vector<vector<int>> det) {
+		for (int i = 0; i < det.size(); ++i) {
+			pIndex.push_back(i);
+			pDir.push_back(1);
+		}
+		for (int i = 0; i < det.size(); i++) {
+			for (int j = 0; j < det.size(); j++){
+			ddeter[i, j] = det[i, j];
+}
 		}
 	};
 

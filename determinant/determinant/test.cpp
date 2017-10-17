@@ -6,7 +6,11 @@ using namespace std;
 
 void TestPermutation()
 {
-	vector<int> det = { 1,3,7,6 };
+	vector<int> det = { 1,3,7 };
+
+	vector<vector<int>> deter = { {1,2,3},{4,5,6},{7,8,9} };
+
+	cout << deter.size() << endl;
 
 	determinant deter1(det);
 
