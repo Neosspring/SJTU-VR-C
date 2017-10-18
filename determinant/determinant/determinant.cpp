@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void determinant::print(vector<int> v1, vector<int> v2) 
+void Determinant::print(vector<int> v1, vector<int> v2) 
 {
 	for (int i = 0; i < v2.size(); i++) {
 		cout << v1[v2[i]] << " ";
@@ -12,7 +12,7 @@ void determinant::print(vector<int> v1, vector<int> v2)
 	cout << endl;
 }
 
-void determinant::print(int v1[10][10],int size) 
+void Determinant::print(int v1[10][10],int size) 
 {
 	for (int i = 0; i < size; i++) {
 		for (int j = 0 ; j < size; j++)
@@ -24,7 +24,7 @@ void determinant::print(int v1[10][10],int size)
 	cout << endl;
 }
 
-int determinant::findMovable(vector<int> v, vector<int> dir, int n) 
+int Determinant::findMovable(vector<int> v, vector<int> dir, int n) 
 {
 	int max = -1;
 	for (int i = 0; i < n; i++) 
@@ -44,7 +44,7 @@ int determinant::findMovable(vector<int> v, vector<int> dir, int n)
 	return max;
 }
 
-vector<int> determinant::reverse(vector<int> v, vector<int> left, int index) 
+vector<int> Determinant::reverse(vector<int> v, vector<int> left, int index) 
 {
 	for (int i = 0; i < v.size(); i++) 
 	{
@@ -59,7 +59,7 @@ vector<int> determinant::reverse(vector<int> v, vector<int> left, int index)
 	return left;
 }
 
-int determinant::GetInverseCount(vector<int> sequence, int size)
+int Determinant::GetInverseCount(vector<int> sequence, int size)
 {
 	int count{ 0 };
 	for (int i = 0; i < size - 1; i++)
@@ -73,10 +73,15 @@ int determinant::GetInverseCount(vector<int> sequence, int size)
 	return count;
 }
 
-vector<int> determinant::swap(vector<int> v, int index1, int index2) 
+vector<int> Determinant::swap(vector<int> v, int index1, int index2) 
 {
 	int index = v[index1];
 	v[index1] = v[index2];
 	v[index2] = index;
 	return v;
 }
+
+//Determinant::operator * (int d1[10][10], int d2[10][10])
+//{
+//
+//}

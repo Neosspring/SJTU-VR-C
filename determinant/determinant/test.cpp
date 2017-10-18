@@ -10,7 +10,7 @@ void TestPermutation()
 
 	int deter[10][10] = { {1,2,3},{4,5,6},{7,8,9} };
 
-	determinant deter1(deter, 3);
+	Determinant deter1(deter, 3);
 
 	deter1.print(deter1.ddeter, 3);
 
