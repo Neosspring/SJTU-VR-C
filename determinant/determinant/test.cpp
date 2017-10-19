@@ -8,37 +8,14 @@ void TestPermutation()
 {
 	vector<int> det = { 1,3,7 };
 
-	int deter[10][10] = { {1,2,3},{4,5,6},{7,8,9} };
+	int deter[10][10] = { {1,0,0},{0,1,0},{1,1,1} };
 
 	Determinant deter1(deter, 3);
 
-	deter1.print(deter1.ddeter, 3);
+	deter1.print(deter1.deter, 3);
 
-	/*determinant deter1(det);
+	cout << deter1.sizeOfDeter << endl;
+	cout << deter1.value << endl;
 
-	deter1.print(deter1.deter, deter1.pIndex);
-
-	int index = deter1.findMovable(deter1.pIndex, deter1.pDir, deter1.deter.size());
-
-	while (index != -1) {
-		int flag = deter1.pDir[index];
-		int swapIdx = flag == 1 ? index - 1 : index + 1;
-		
-		deter1.pIndex = deter1.swap(deter1.pIndex, swapIdx, index);
-		
-		deter1.print(deter1.deter, deter1.pIndex);
-
-		deter1.pDir = deter1.swap(deter1.pDir, swapIdx, index);
-
-		if (flag == 1) {
-			index--;
-		}
-		else {
-			index++;
-		}
-
-		deter1.pDir = deter1.reverse(deter1.pIndex, deter1.pDir, index);
-
-		index = deter1.findMovable(deter1.pIndex, deter1.pDir, deter1.deter.size());
-	}*/
+	deter1.print(deter1.Adeter, 3);
 }

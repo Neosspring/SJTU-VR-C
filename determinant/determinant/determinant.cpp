@@ -24,23 +24,24 @@ void Determinant::print(int v1[10][10],int size)
 	cout << endl;
 }
 
-int Determinant::findMovable(vector<int> v, vector<int> dir, int n) 
+int Determinant::findMovable(vector<int> deter, vector<int> dir, int n) 
 {
 	int max = -1;
 	for (int i = 0; i < n; i++) 
 	{
-		if (max<0 || v[i]>v[max]) 
+		if (max<0 || deter[i] > deter[max]) 
 		{
-			if (dir[i] == 1 && i > 0 && v[i] > v[i - 1]) 
+			if (dir[i] == 1 && i > 0 && deter[i] > deter[i - 1]) 
 			{
 				max = i;
 			}
-			else if (dir[i] == 0 && i < n - 1 && v[i] > v[i + 1]) 
+			else if (dir[i] == 0 && i < n - 1 && deter[i] > deter[i + 1]) 
 			{
 				max = i;
 			}
 		}
 	}
+
 	return max;
 }
 
@@ -80,6 +81,116 @@ vector<int> Determinant::swap(vector<int> v, int index1, int index2)
 	v[index2] = index;
 	return v;
 }
+
+int Determinant::valueOfDeterminant(int ** deter, int size)
+{
+	int det[10][10];
+
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			det[i][j] = deter[i][j];
+		}
+	}
+	return valueOfDeterminant(det, size);
+}
+
+int Determinant::valueOfDeterminant(int deter[10][10], int size) 
+{
+	vector<int> pIndex;
+	vector<int> pDir;
+	int index = size - 1;	
+	int value = 0;
+	int product;
+	for (int i = 0; i < size; ++i) 
+	{
+		pIndex.push_back(i);
+		pDir.push_back(1);
+	}
+	do
+	{
+		if (GetInverseCount(pIndex, size) / 2 == 0) 
+		{
+			product = 1;
+		}
+		else 
+		{
+			product = -1;
+		}
+		for (int i = 0; i < size; i++) 
+		{
+			product *= deter[pIndex[i]][i];
+		}
+		value += product;
+		int flag = pDir[index];
+		int swapIdx = flag == 1 ? index - 1 : index + 1;
+		pIndex = swap(pIndex, swapIdx, index);
+		pDir = swap(pDir, swapIdx, index);
+		if (flag == 1) 
+		{
+			index--;
+		}
+		else 
+		{
+			index++;
+		}
+		pDir = reverse(pIndex, pDir, index);
+		index = findMovable(pIndex, pDir, size);
+	} while (index != -1);
+	if (GetInverseCount(pIndex, size) / 2 == 0)
+	{
+		product = 1;
+	}
+	else
+	{
+		product = -1;
+	}
+	for (int i = 0; i < size; i++)
+	{
+		product *= deter[pIndex[i]][i];
+	}
+	value += product;
+	return value;
+}
+
+
+int ** Determinant::getAdeter(int deter[10][10], int x, int y, int size)
+{
+	int **adeter = 0;
+
+	adeter = new int*[size];
+
+	for (int i = 0; i < size - 1; i++)
+	{
+		int k;
+		if (i == x) {
+			k = 1;
+		}
+		else {
+			k = 0;
+		}
+		adeter[i] = new int[size];
+		for (int j = 0; j < size - 1; j++)
+		{
+			int l;
+			if (j == y) {
+				l = 1;
+			}
+			else {
+				l = 0;
+			}
+			adeter[i][j] = deter[i+k][j+l];
+		}
+	}
+	/*for (int i = 0; i < size - 1; i++) {
+		for (int j = 0; j < size - 1; j++) {
+			cout << adeter[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << endl;*/
+	return adeter;
+}
+
 
 //Determinant::operator * (int d1[10][10], int d2[10][10])
 //{
