@@ -108,6 +108,10 @@ int Determinant::valueOfDeterminant(int deter[10][10], int size)
 	}
 	do
 	{
+		/*for (int i = 0; i < size; i++) {
+			cout << pIndex[i] << " ";
+		}
+		cout << endl;*/
 		if (GetInverseCount(pIndex, size) / 2 == 0) 
 		{
 			product = 1;
@@ -159,40 +163,45 @@ int ** Determinant::getAdeter(int deter[10][10], int x, int y, int size)
 
 	adeter = new int*[size];
 
+	int k = 0;
+
 	for (int i = 0; i < size - 1; i++)
 	{
-		int k;
 		if (i == x) {
 			k = 1;
-		}
-		else {
-			k = 0;
 		}
 		adeter[i] = new int[size];
 		for (int j = 0; j < size - 1; j++)
 		{
 			int l;
-			if (j == y) {
-				l = 1;
+			if (j < y) {
+				l = 0;
 			}
 			else {
-				l = 0;
+				l = 1;
 			}
 			adeter[i][j] = deter[i+k][j+l];
 		}
 	}
-	/*for (int i = 0; i < size - 1; i++) {
-		for (int j = 0; j < size - 1; j++) {
-			cout << adeter[i][j] << " ";
-		}
-		cout << endl;
-	}
-	cout << endl;*/
 	return adeter;
 }
 
+int ** Determinant::mul(int d1[10][10], int d2[10][10], int size)
+{
+	int **deter = 0;
 
-//Determinant::operator * (int d1[10][10], int d2[10][10])
-//{
-//
-//}
+	deter = new int*[size];
+
+	for (int i = 0; i < size; i++) {
+		deter[i] = new int[size];
+		for (int j = 0; j < size; j++) {
+			int count = 0;
+			for (int k = 0; k < size; k++) {
+				count += d1[i][k] * d2[k][j];
+			}
+			deter[i][j] = count;
+		}
+	}
+
+	return deter;
+}

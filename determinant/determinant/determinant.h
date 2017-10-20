@@ -39,7 +39,7 @@ public:
 	int valueOfDeterminant(int ** deter, int size);
 	int **getAdeter(int deter[10][10], int x, int y, int size);
 
-	/*int operator*(int d1[10][10], int d2[10][10]);*/
+	int ** Determinant::mul(int d1[10][10], int d2[10][10], int size);
 
 private:
 
