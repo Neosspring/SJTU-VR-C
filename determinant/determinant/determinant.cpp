@@ -4,24 +4,16 @@
 
 using namespace std;
 
-void Determinant::print(vector<int> v1, vector<int> v2) 
-{
-	for (int i = 0; i < v2.size(); i++) {
-		cout << v1[v2[i]] << " ";
-	}
-	cout << endl;
-}
-
 void Determinant::print(int v1[10][10],int size) 
 {
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < size; i++) 
+	{
 		for (int j = 0 ; j < size; j++)
 		{
 			cout << v1[i][j] << " ";
 		}
 		cout << endl;
 	}
-	cout << endl;
 }
 
 int Determinant::findMovable(vector<int> deter, vector<int> dir, int n) 
@@ -86,8 +78,10 @@ int Determinant::valueOfDeterminant(int ** deter, int size)
 {
 	int det[10][10];
 
-	for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
+	for (int i = 0; i < size; i++) 
+	{
+		for (int j = 0; j < size; j++) 
+		{
 			det[i][j] = deter[i][j];
 		}
 	}
@@ -96,63 +90,67 @@ int Determinant::valueOfDeterminant(int ** deter, int size)
 
 int Determinant::valueOfDeterminant(int deter[10][10], int size) 
 {
-	vector<int> pIndex;
-	vector<int> pDir;
-	int index = size - 1;	
-	int value = 0;
-	int product;
-	for (int i = 0; i < size; ++i) 
+	int value;
+	if (size == 2) 
 	{
-		pIndex.push_back(i);
-		pDir.push_back(1);
+		value = deter[0][0] * deter[1][1] - deter[1][0] * deter[0][1];
 	}
-	do
+	else 
 	{
-		/*for (int i = 0; i < size; i++) {
-			cout << pIndex[i] << " ";
+		vector<int> pIndex;
+		vector<int> pDir;
+		int product;
+		int index = size - 1;
+		value = 0;
+		for (int i = 0; i < size; ++i)
+		{
+			pIndex.push_back(i);
+			pDir.push_back(1);
 		}
-		cout << endl;*/
-		if (GetInverseCount(pIndex, size) / 2 == 0) 
+		do
+		{
+			if (GetInverseCount(pIndex, size) % 2 == 0)
+			{
+				product = 1;
+			}
+			else
+			{
+				product = -1;
+			}
+			for (int i = 0; i < size; i++)
+			{
+				product *= deter[i][pIndex[i]];
+			}
+			value += product;
+			int flag = pDir[index];
+			int swapIdx = flag == 1 ? index - 1 : index + 1;
+			pIndex = swap(pIndex, swapIdx, index);
+			pDir = swap(pDir, swapIdx, index);
+			if (flag == 1)
+			{
+				index--;
+			}
+			else
+			{
+				index++;
+			}
+			pDir = reverse(pIndex, pDir, index);
+			index = findMovable(pIndex, pDir, size);
+		} while (index != -1);
+		if (GetInverseCount(pIndex, size) % 2 == 0)
 		{
 			product = 1;
 		}
-		else 
+		else
 		{
 			product = -1;
 		}
-		for (int i = 0; i < size; i++) 
+		for (int i = 0; i < size; i++)
 		{
-			product *= deter[pIndex[i]][i];
+			product *= deter[i][pIndex[i]];
 		}
 		value += product;
-		int flag = pDir[index];
-		int swapIdx = flag == 1 ? index - 1 : index + 1;
-		pIndex = swap(pIndex, swapIdx, index);
-		pDir = swap(pDir, swapIdx, index);
-		if (flag == 1) 
-		{
-			index--;
-		}
-		else 
-		{
-			index++;
-		}
-		pDir = reverse(pIndex, pDir, index);
-		index = findMovable(pIndex, pDir, size);
-	} while (index != -1);
-	if (GetInverseCount(pIndex, size) / 2 == 0)
-	{
-		product = 1;
 	}
-	else
-	{
-		product = -1;
-	}
-	for (int i = 0; i < size; i++)
-	{
-		product *= deter[pIndex[i]][i];
-	}
-	value += product;
 	return value;
 }
 
@@ -160,24 +158,24 @@ int Determinant::valueOfDeterminant(int deter[10][10], int size)
 int ** Determinant::getAdeter(int deter[10][10], int x, int y, int size)
 {
 	int **adeter = 0;
-
 	adeter = new int*[size];
-
 	int k = 0;
-
 	for (int i = 0; i < size - 1; i++)
 	{
-		if (i == x) {
+		if (i == x) 
+		{
 			k = 1;
 		}
 		adeter[i] = new int[size];
 		for (int j = 0; j < size - 1; j++)
 		{
 			int l;
-			if (j < y) {
+			if (j < y) 
+			{
 				l = 0;
 			}
-			else {
+			else 
+			{
 				l = 1;
 			}
 			adeter[i][j] = deter[i+k][j+l];
@@ -189,19 +187,19 @@ int ** Determinant::getAdeter(int deter[10][10], int x, int y, int size)
 int ** Determinant::mul(int d1[10][10], int d2[10][10], int size)
 {
 	int **deter = 0;
-
 	deter = new int*[size];
-
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < size; i++) 
+	{
 		deter[i] = new int[size];
-		for (int j = 0; j < size; j++) {
+		for (int j = 0; j < size; j++) 
+		{
 			int count = 0;
-			for (int k = 0; k < size; k++) {
+			for (int k = 0; k < size; k++) 
+			{
 				count += d1[i][k] * d2[k][j];
 			}
 			deter[i][j] = count;
 		}
 	}
-
 	return deter;
 }

@@ -6,11 +6,11 @@ using namespace std;
 
 void TestPermutation()
 {
-	vector<int> det = { 1,3,7 };
-
 	int det1[10][10] = { {1,2,3},{1,1,1},{2,2,1} };
 
 	Determinant deter1(det1, 3);
+
+	cout << "determinant1:" << endl;
 
 	deter1.print(deter1.deter, 3);
 
@@ -18,7 +18,11 @@ void TestPermutation()
 
 	Determinant deter2(det2, 3);
 
+	cout << "determinant2:" << endl;
+
 	deter2.print(deter2.deter, 3);
+
+	cout << "determinant1 * determinant2 = " << endl;
 
 	int ** result = deter1.mul(deter1.deter, deter2.deter, 3);
 
@@ -28,8 +32,10 @@ void TestPermutation()
 		}
 		cout << endl;
 	}
-	/*cout << deter1.sizeOfDeter << endl;
-	cout << deter1.value << endl;
 
-	deter1.print(deter1.Adeter, 3);*/
+	cout << "value of determinant1: "<<deter1.value << endl;
+
+	cout << "algebraic complement of determinant1:" << endl;
+
+	deter1.print(deter1.Adeter, 3);
 }
