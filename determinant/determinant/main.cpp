@@ -2,6 +2,12 @@
 
 using namespace std;
 
+void TestEvaluation();
+void TestMutiply();
+void TestCofactors();
+
 void main() {
-	cout << "Thisi is a test22" << endl;
+	TestEvaluation();
+	TestMutiply();
+	TestCofactors();
 }
