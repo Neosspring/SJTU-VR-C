@@ -3,5 +3,5 @@
 using namespace std;
 
 void main() {
-	cout << "This is a matrix project" << endl;
+	cout << "This is a matrix project." << endl;
 }
