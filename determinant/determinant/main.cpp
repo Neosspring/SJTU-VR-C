@@ -3,5 +3,5 @@
 using namespace std;
 
 void main() {
-	cout << "Thisi is a tes" << endl;
+	cout << "Thisi is a test by jzh" << endl;
 }
