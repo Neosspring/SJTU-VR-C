@@ -1,8 +1,5 @@
 #include <utility>
-#include "determinant.h"
-
-
-
+#include "Determinant.h"
 
 int GetInverseCount(const Sequence&  seq)
 {

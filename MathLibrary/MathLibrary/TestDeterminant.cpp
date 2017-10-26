@@ -1,5 +1,5 @@
-#include<iostream>
-#include "determinant.h"
+#include <iostream>
+#include "Determinant.h"
 using namespace std;
 
 void Print(const Determinant& dm)

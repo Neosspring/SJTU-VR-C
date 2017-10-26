@@ -6,8 +6,15 @@ void TestEvaluation();
 void TestMutiply();
 void TestCofactors();
 
+void TestSum();
+void TestSub();
+void TestMul();
+
 void main() {
-	TestEvaluation();
-	TestMutiply();
-	TestCofactors();
+	//TestEvaluation();
+	//TestMutiply();
+	//TestCofactors();
+	TestSum();
+	TestSub();
+	TestMul();
 }
