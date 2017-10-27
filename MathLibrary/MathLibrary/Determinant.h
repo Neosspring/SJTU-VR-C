@@ -1,4 +1,5 @@
 #pragma once
+#include "Matrix.h"
 enum class Direction : char { Left, Right };
 struct Sequence {
 	int index[10];
@@ -18,6 +19,7 @@ struct Sequence {
 struct Determinant {
 	double  elem[10][10];
 	int     order;
+
 	Determinant(const double* m, int dim)
 	{
 		order = dim;
@@ -25,6 +27,7 @@ struct Determinant {
 			for (int j = 0; j < dim; j++)
 				elem[i][j] = m[i*dim + j];
 	}
+
 	Determinant()
 	{
 		order = 0;

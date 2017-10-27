@@ -9,12 +9,14 @@ void TestCofactors();
 void TestSum();
 void TestSub();
 void TestMul();
+void TestInverse();
 
 void main() {
 	//TestEvaluation();
 	//TestMutiply();
 	//TestCofactors();
-	TestSum();
-	TestSub();
-	TestMul();
+	//TestSum();
+	//TestSub();
+	//TestMul();
+	TestInverse();
 }

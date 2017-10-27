@@ -55,3 +55,14 @@ void TestMul()
 	Print(mm2);
 	Print(res);
 }
+
+void TestInverse()
+{
+	const double m[][3] = { {1,2,3},{3,2,1},{1,3,2} };
+	
+	Matrix mm(&m[0][0], 3, 3);
+	Matrix res = getInverse(mm);
+
+	Print(mm);
+	Print(res);
+}

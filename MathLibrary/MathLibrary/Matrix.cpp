@@ -1,5 +1,6 @@
 #include <utility>
 #include "Matrix.h"
+#include "Determinant.h"
 
 Matrix operator+(const Matrix& m1, const Matrix& m2) 
 {
@@ -40,5 +41,22 @@ Matrix operator*(const Matrix& m1, const Matrix& m2)
 	}
 	res.column = m1.column;
 	res.row = m2.row;
+	return res;
+}
+
+Matrix getInverse(const Matrix& m)
+{
+	Determinant d(&m.elem[0][0], m.column);
+	double count = Evaluate(d);
+	Determinant result = GetCofactors(d);
+
+	Matrix res(&result.elem[0][0], result.order, result.order);
+
+	for (int i = 0; i < res.row; i++) {
+		for (int j = 0; j < res.column; j++) {
+			res.elem[i][j] /= count;
+		}
+	}
+
 	return res;
 }
