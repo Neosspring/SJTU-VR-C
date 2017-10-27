@@ -1,6 +1,10 @@
 #include <utility>
+#include <iostream>
 #include "Matrix.h"
 #include "Determinant.h"
+using namespace std;
+
+void Print(const Determinant& dm);
 
 Matrix operator+(const Matrix& m1, const Matrix& m2) 
 {
@@ -44,19 +48,19 @@ Matrix operator*(const Matrix& m1, const Matrix& m2)
 	return res;
 }
 
-Matrix getInverse(const Matrix& m)
+void getInverse(const Determinant& m)
 {
-	Determinant d(&m.elem[0][0], m.column);
-	double count = Evaluate(d);
-	Determinant result = GetCofactors(d);
+	const int size = m.order;
 
-	Matrix res(&result.elem[0][0], result.order, result.order);
+	double count = Evaluate(m);
+	Determinant result = GetCofactors(m);
+	Matrix res;
 
-	for (int i = 0; i < res.row; i++) {
-		for (int j = 0; j < res.column; j++) {
-			res.elem[i][j] /= count;
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			res.elem[i][j] = result.elem[i][j] / count;
+			cout << res.elem[i][j] << " ";
 		}
+		cout << endl;
 	}
-
-	return res;
 }

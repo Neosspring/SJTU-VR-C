@@ -26,4 +26,4 @@ struct Matrix {
 Matrix operator+(const Matrix& m1, const Matrix& m2);
 Matrix operator-(const Matrix& m1, const Matrix& m2);
 Matrix operator*(const Matrix& m1, const Matrix& m2);
-Matrix getInverse(const Matrix& m);
+void getInverse(const Determinant& m);

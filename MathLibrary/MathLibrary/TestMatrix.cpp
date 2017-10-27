@@ -2,6 +2,8 @@
 #include "Matrix.h"
 using namespace std;
 
+void Print(const Determinant& dm);
+
 void Print(const Matrix& dm)
 {
 	for (int i = 0; i < dm.row; i++)
@@ -60,9 +62,8 @@ void TestInverse()
 {
 	const double m[][3] = { {1,2,3},{3,2,1},{1,3,2} };
 	
-	Matrix mm(&m[0][0], 3, 3);
-	Matrix res = getInverse(mm);
-
-	Print(mm);
-	Print(res);
+	Determinant d(&m[0][0], 3);
+	Print(d);
+	
+	getInverse(d);
 }
