@@ -60,10 +60,12 @@ void TestMul()
 
 void TestInverse()
 {
-	const double m[][3] = { {1,2,3},{3,2,1},{1,3,2} };
+	const double m[][3] = { {1,0,3},{0,2,1},{1,3,0} };
 	
 	Determinant d(&m[0][0], 3);
-	Print(d);
-	
-	getInverse(d);
+	Matrix mm(&m[0][0], 3, 3);
+	Matrix res = getInverse(&m[0][0], 3);
+
+	Print(mm);
+	Print(res);
 }

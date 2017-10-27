@@ -5,6 +5,7 @@
 using namespace std;
 
 void Print(const Determinant& dm);
+void Print(const Matrix& dm);
 
 Matrix operator+(const Matrix& m1, const Matrix& m2) 
 {
@@ -48,19 +49,21 @@ Matrix operator*(const Matrix& m1, const Matrix& m2)
 	return res;
 }
 
-void getInverse(const Determinant& m)
+Matrix getInverse(const double* m,int size)
 {
-	const int size = m.order;
+	Determinant mm(m, size);
 
-	double count = Evaluate(m);
-	Determinant result = GetCofactors(m);
+	double count = Evaluate(mm);
+	Determinant result = GetCofactors(mm);
 	Matrix res;
+	res.column = size;
+	res.row = size;
 
 	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {
 			res.elem[i][j] = result.elem[i][j] / count;
-			cout << res.elem[i][j] << " ";
 		}
-		cout << endl;
 	}
+
+	return res;
 }
