@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{266F704A-0DEF-4236-B12D-D784482F5B09}</ProjectGuid>
-    <RootNamespace>determinant</RootNamespace>
+    <ProjectGuid>{692065E4-3252-45EA-9372-3AC4E3E2B69C}</ProjectGuid>
+    <RootNamespace>MathLibrary</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -111,12 +111,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="determinant.h" />
+    <ClCompile Include="Determinant.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="TestDeterminant.cpp" />
+    <ClCompile Include="TestMatrix.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="determinant.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClInclude Include="Determinant.h" />
+    <ClInclude Include="Matrix.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
