@@ -4,7 +4,6 @@
 struct Matrix {
 	double elem[10][10];
 	int row, column;
-
 	Matrix(const double* m, int r, int c)
 	{
 		row = r;
@@ -22,8 +21,11 @@ struct Matrix {
 	{
 		row = column = 0;
 	}
+
 };
 Matrix operator+(const Matrix& m1, const Matrix& m2);
 Matrix operator-(const Matrix& m1, const Matrix& m2);
 Matrix operator*(const Matrix& m1, const Matrix& m2);
 Matrix getInverse(const double* m, int size);
+Matrix getInverse(const Matrix& m);
+Determinant ToDeterminant(const Matrix&);

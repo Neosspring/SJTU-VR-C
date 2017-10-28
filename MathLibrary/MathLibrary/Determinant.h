@@ -1,5 +1,4 @@
 #pragma once
-#include "Matrix.h"
 enum class Direction : char { Left, Right };
 struct Sequence {
 	int index[10];

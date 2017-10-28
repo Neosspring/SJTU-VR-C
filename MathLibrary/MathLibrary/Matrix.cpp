@@ -67,3 +67,33 @@ Matrix getInverse(const double* m,int size)
 
 	return res;
 }
+
+
+Matrix getInverse(const Matrix& m)
+{
+	Determinant mm{ ToDeterminant(m) };
+	int size = m.row;
+	double count = Evaluate(mm);
+	Determinant result = GetCofactors(mm);
+	Matrix res;
+	res.column = size;
+	res.row = size;
+
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			res.elem[i][j] = result.elem[i][j] / count;
+		}
+	}
+
+	return res;
+}
+
+Determinant ToDeterminant(const Matrix& m)
+{
+	Determinant d;
+	for (int i = 0; i < m.row; i++)
+		for (int j = 0; j < m.row; j++)
+			d.elem[i][j] = m.elem[i][j];
+	d.order = m.row;
+	return d;
+}

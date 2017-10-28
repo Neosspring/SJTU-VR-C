@@ -64,7 +64,7 @@ void TestInverse()
 	
 	Determinant d(&m[0][0], 3);
 	Matrix mm(&m[0][0], 3, 3);
-	Matrix res = getInverse(&m[0][0], 3);
+	Matrix res = getInverse(mm);
 
 	Print(mm);
 	Print(res);
