@@ -117,12 +117,12 @@
     <ClCompile Include="TestDeterminant.cpp" />
     <ClCompile Include="TestMatrix.cpp" />
     <ClCompile Include="TestVector.cpp" />
-    <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="Vec.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Determinant.h" />
     <ClInclude Include="Matrix.h" />
-    <ClInclude Include="Vector.h" />
+    <ClInclude Include="Vec.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

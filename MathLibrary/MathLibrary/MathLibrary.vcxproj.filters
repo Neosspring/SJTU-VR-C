@@ -30,10 +30,10 @@
     <ClCompile Include="TestMatrix.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Vector.cpp">
+    <ClCompile Include="TestVector.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="TestVector.cpp">
+    <ClCompile Include="Vec.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClInclude Include="Matrix.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Vector.h">
+    <ClInclude Include="Vec.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
