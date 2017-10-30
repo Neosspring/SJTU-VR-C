@@ -15,3 +15,5 @@ Vec operator+(const Vec &v1, const Vec &v2);
 Vec operator-(const Vec &v1, const Vec &v2);
 Vec operator*(const int &i, const Vec &v);
 Vec operator*(const Vec &v, const int &i);
+double Dot(const Vec &v1, const Vec &v2);
+Vec Cross(const Vec &v1, const Vec &v2);

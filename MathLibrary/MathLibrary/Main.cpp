@@ -14,6 +14,8 @@ void TestMatrixInverse();
 void TestVectorSum();
 void TestVectorSub();
 void TestVectorMul();
+void TestVectorDot();
+void TestVectorCross();
 
 void TestNode();
 
@@ -27,9 +29,11 @@ void main() {
 	//TestMatrixMul();
 	//TestMatrixInverse();
 
-	TestVectorSum();
-	TestVectorSub();
-	TestVectorMul();
+	//TestVectorSum();
+	//TestVectorSub();
+	//TestVectorMul();
+	TestVectorDot();
+	TestVectorCross();
 
 	//TestNode();
 }

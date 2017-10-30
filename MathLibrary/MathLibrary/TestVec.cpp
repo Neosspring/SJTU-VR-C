@@ -52,3 +52,31 @@ void TestVectorMul()
 	Print(res1);
 	Print(res2);
 }
+
+void TestVectorDot()
+{
+	const double v1[3] = { 1,2,3 };
+	const double v2[3] = { 3,2,1 };
+
+	Vec vv1(&v1[0]);
+	Vec vv2(&v2[0]);
+	double res = Dot(vv1,vv2);
+
+	Print(vv1);
+	Print(vv2);
+	cout << res << endl;
+}
+
+void TestVectorCross()
+{
+	const double v1[3] = { 1,2,3 };
+	const double v2[3] = { 3,2,1 };
+
+	Vec vv1(&v1[0]);
+	Vec vv2(&v2[0]);
+	Vec res = Cross(vv1, vv2);
+
+	Print(vv1);
+	Print(vv2);
+	Print(res);
+}
