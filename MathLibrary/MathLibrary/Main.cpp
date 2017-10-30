@@ -11,6 +11,8 @@ void TestSub();
 void TestMul();
 void TestInverse();
 
+void TestNode();
+
 void main() {
 	//TestEvaluation();
 	//TestMutiply();
@@ -18,5 +20,6 @@ void main() {
 	//TestSum();
 	//TestSub();
 	//TestMul();
-	TestInverse();
+	//TestInverse();
+	TestNode();
 }

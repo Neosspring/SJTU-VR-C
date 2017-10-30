@@ -116,12 +116,14 @@
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="TestDeterminant.cpp" />
     <ClCompile Include="TestMatrix.cpp" />
+    <ClCompile Include="TestNode.cpp" />
     <ClCompile Include="TestVector.cpp" />
     <ClCompile Include="Vec.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Determinant.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Vec.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
