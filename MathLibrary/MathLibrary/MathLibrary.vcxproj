@@ -117,7 +117,7 @@
     <ClCompile Include="TestDeterminant.cpp" />
     <ClCompile Include="TestMatrix.cpp" />
     <ClCompile Include="TestNode.cpp" />
-    <ClCompile Include="TestVector.cpp" />
+    <ClCompile Include="TestVec.cpp" />
     <ClCompile Include="Vec.cpp" />
   </ItemGroup>
   <ItemGroup>

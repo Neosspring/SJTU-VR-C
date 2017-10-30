@@ -16,7 +16,7 @@ void Print(const Matrix& dm)
 	cout << endl;
 }
 
-void TestSum()
+void TestMatrixSum()
 {
 	const double m1[][3] = { {1,2,3},{4,5,6},{7,8,9} };
 	const double m2[][3] = { {3,2,1},{6,5,4},{9,8,7} };
@@ -30,7 +30,7 @@ void TestSum()
 	Print(res);
 }
 
-void TestSub()
+void TestMatrixSub()
 {
 	const double m1[][3] = { { 1,2,3 },{ 4,5,6 },{ 7,8,9 } };
 	const double m2[][3] = { { 3,2,1 },{ 6,5,4 },{ 9,8,7 } };
@@ -44,7 +44,7 @@ void TestSub()
 	Print(res);
 }
 
-void TestMul()
+void TestMatrixMul()
 {
 	const double m1[][3] = { { 1,2,3 },{ 4,5,6 },{ 7,8,9 } };
 	const double m2[][3] = { { 3,2,1 },{ 6,5,4 },{ 9,8,7 } };
@@ -58,7 +58,7 @@ void TestMul()
 	Print(res);
 }
 
-void TestInverse()
+void TestMatrixInverse()
 {
 	const double m[][3] = { {1,0,3},{0,2,1},{1,3,0} };
 	

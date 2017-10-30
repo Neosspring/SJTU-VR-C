@@ -6,10 +6,14 @@ void TestEvaluation();
 void TestMutiply();
 void TestCofactors();
 
-void TestSum();
-void TestSub();
-void TestMul();
-void TestInverse();
+void TestMatrixSum();
+void TestMatrixSub();
+void TestMatrixMul();
+void TestMatrixInverse();
+
+void TestVectorSum();
+void TestVectorSub();
+void TestVectorMul();
 
 void TestNode();
 
@@ -17,9 +21,15 @@ void main() {
 	//TestEvaluation();
 	//TestMutiply();
 	//TestCofactors();
-	//TestSum();
-	//TestSub();
-	//TestMul();
-	//TestInverse();
-	TestNode();
+
+	//TestMatrixSum();
+	//TestMatrixSub();
+	//TestMatrixMul();
+	//TestMatrixInverse();
+
+	TestVectorSum();
+	TestVectorSub();
+	TestVectorMul();
+
+	//TestNode();
 }
