@@ -39,6 +39,9 @@
     <ClCompile Include="TestVec.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Determinant.h">
@@ -51,6 +54,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Node.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
