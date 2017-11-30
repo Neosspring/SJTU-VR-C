@@ -32,7 +32,7 @@ Vec operator*(const Vec &v, const int &i)
 	return i * v;
 }
 
-double Dot(const Vec &v1, const Vec &v2)
+double VecDot(const Vec &v1, const Vec &v2)
 {
 	double res = 0;
 	for (int i = 0; i < 3; i++)
@@ -42,7 +42,7 @@ double Dot(const Vec &v1, const Vec &v2)
 	return res;
 }
 
-Vec Cross(const Vec &v1, const Vec &v2)
+Vec VecCross(const Vec &v1, const Vec &v2)
 {
 	Vec res;
 	res.elem[0] = v1.elem[1] * v2.elem[2] - v1.elem[2] * v2.elem[1];

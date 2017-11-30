@@ -8,6 +8,11 @@ struct Vec {
 			elem[i] = m[i];
 		}
 	}
+	Vec(double x, double y, double z) {
+		elem[0] = x;
+		elem[1] = y;
+		elem[2] = z;
+	}
 
 	Vec(){}
 };
@@ -15,5 +20,5 @@ Vec operator+(const Vec &v1, const Vec &v2);
 Vec operator-(const Vec &v1, const Vec &v2);
 Vec operator*(const int &i, const Vec &v);
 Vec operator*(const Vec &v, const int &i);
-double Dot(const Vec &v1, const Vec &v2);
-Vec Cross(const Vec &v1, const Vec &v2);
+double VecDot(const Vec &v1, const Vec &v2);
+Vec VecCross(const Vec &v1, const Vec &v2);
