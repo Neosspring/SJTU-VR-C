@@ -102,11 +102,11 @@ void Quaternion::Display() {
 	cout << s << ' + ' << x << " i + " << y << " j + " << z << ' k' << endl;
 }
 
-double Quaternion::Dot(const Quaternion& q1, const Quaternion& q2) {
+double Dot(const Quaternion& q1, const Quaternion& q2) {
 	return q1.s*q2.s + q1.x*q2.x + q1.y*q2.y + q1.z*q1.z;
 }
 
-double Quaternion::GetAngle(const Quaternion& q1, const Quaternion& q2) {
+double GetAngle(const Quaternion& q1, const Quaternion& q2) {
 	Quaternion qq1(q1);
 	Quaternion qq2(q2);
 	double angle;
@@ -114,7 +114,7 @@ double Quaternion::GetAngle(const Quaternion& q1, const Quaternion& q2) {
 	return angle;
 }
 
-Quaternion Quaternion::Cross(const Quaternion& q1, const Quaternion& q2) {
+Quaternion Cross(const Quaternion& q1, const Quaternion& q2) {
 	Vec v1(q1.x, q1.y, q1.z);
 	Vec v2(q2.x, q2.y, q2.z);
 	double w = q1.s*q2.s - VecDot(v1, v2);
@@ -123,6 +123,9 @@ Quaternion Quaternion::Cross(const Quaternion& q1, const Quaternion& q2) {
 	return result;
 }
 
-Quaternion Quaternion::Rotate(const Quaternion& p, const Quaternion& q, const double angle) {
-
+Quaternion Rotate(const Vec& vp, const Vec& vq, const double angle) {
+	Quaternion p(0, vp.elem[0], vp.elem[1], vp.elem[2]);
+	Quaternion q(cos(angle / 2), sin(angle / 2)*vq.elem[0], sin(angle / 2)*vq.elem[1], sin(angle / 2)*vq.elem[2]);
+	Quaternion result = Cross(Cross(q, p), q.Inverse());
+	return result;
 }
